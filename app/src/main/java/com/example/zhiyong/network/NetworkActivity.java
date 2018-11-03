@@ -82,6 +82,12 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    /*
+    *
+    * 解析数据
+    *
+    * */
+
     private void handleJonResult(String mResult) {
 //        由result直接转换成JSON Object
 
