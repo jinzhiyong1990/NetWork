@@ -40,7 +40,6 @@ public class DownLoadActivity extends Activity {
          *
          */
 
-
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +81,6 @@ public class DownLoadActivity extends Activity {
         try {
             URL url = new URL(appurl);
             URLConnection urlConnection = url.openConnection();
-
             InputStream inputStream = urlConnection.getInputStream();
 
             //获取文件的总长度
@@ -94,15 +92,11 @@ public class DownLoadActivity extends Activity {
 
 //            创建目录
             File file = new File(downloadFolderName);
-
             if (!file.exists()) {
                 file.mkdir();
             }
-
             String fileName = downloadFolderName + "_imooc.apk";
-
             File apkFile = new File(fileName);
-
             if (apkFile.exists()){
                 apkFile.delete();
             }
@@ -110,38 +104,26 @@ public class DownLoadActivity extends Activity {
 //            开始下载了!
             int downloadSize = 0;
             byte[] bytes = new byte[1024];
-
             int length;
 
 //            把outputstream下载到fileName里面
             OutputStream outputStream = new FileOutputStream(fileName);
-
             while ((length = inputStream.read(bytes))!=-1) {
-
                 outputStream.write(bytes, 0, length);
-
 //            这里头的downloadSize相当于进度
                 downloadSize += length;
-
-
                 /**
                  *
                  * 更新UI
                  *
                  */
-
                 Message message = Message.obtain();
                 message.obj = downloadSize * 100 / contentLength;
                 message.what = DOWNLOAD_MESSAGE_CODE;
                 handler.sendMessage(message);
-
             }
             inputStream.close();
             outputStream.close();
-
-
-
-
         } catch (MalformedURLException e) {
 //            发送下载失败的消息
             notifyDownloadFaild();
