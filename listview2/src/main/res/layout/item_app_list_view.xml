@@ -12,14 +12,14 @@
         />
 
     <TextView
-        android:id="@+id/app_name_image_view"
+        android:id="@+id/app_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center_vertical"
         android:paddingLeft="60dp"
         android:textSize="20sp"
         android:text="@string/app_name"
-    />
+        />
 
 
 </LinearLayout>
