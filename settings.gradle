@@ -1,1 +1,1 @@
-include ':app', ':handler', ':asynctask', ':listview', ':listview2'
+include ':app', ':handler', ':asynctask', ':listview2', ':listview3'
