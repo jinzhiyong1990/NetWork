@@ -1,5 +1,6 @@
 package com.example.localstore01;
 
+import android.Manifest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,8 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.outstore:
-                Intent intent1 = new Intent(MainActivity.this, External.class);
+                Intent intent1 = new Intent(MainActivity.this, Externalwenti_____.class);
                 startActivity(intent1);
+                break;
+
+            case R.id.instore:
+                Intent intent2 = new Intent(MainActivity.this, Internal.class);
+                startActivity(intent2);
                 break;
         }
 
