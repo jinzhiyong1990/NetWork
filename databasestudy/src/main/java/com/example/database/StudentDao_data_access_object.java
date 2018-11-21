@@ -39,13 +39,14 @@ public class StudentDao_data_access_object {
         db = helper.getReadableDatabase();
     }
 
-
+//增
     public void addStudent(Student student) {
         String sql = "insert into info_tb(name, age, gender) values(?,?,?)";
         db.execSQL(sql, new String[]{student.getName(), student.getAge()+"", student.getGender()});
 
     }
 
+    //查
     public Cursor getStudent(String... strings) {
         //查询所有
         String sql = "select * from info_tb";
@@ -58,12 +59,16 @@ public class StudentDao_data_access_object {
         Cursor cursor = db.rawQuery(sql, null);
         return cursor;
     }
+//删
+    public void deleteStudent(String... strings) {
+        String sql = "delete from info_tb where " + strings[0] + "='" + strings[1] + "'";
+        db.execSQL(sql);
 
-    public void deleteStudent() {
 
     }
-
-    public void updateStudent() {
-
+//改
+    public void updateStudent(Student student) {
+        String sql = "update info_tab set name=?,age=?,gender=? where _id=?";
+        db.execSQL(sql, new Object[]{student.getName(), student.getAge(), student.getGender(), student.getId()});
     }
 }

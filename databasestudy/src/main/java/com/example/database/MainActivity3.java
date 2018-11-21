@@ -22,10 +22,9 @@ public class MainActivity3 extends AppCompatActivity {
     private RadioGroup genderGroup;
     private String genderStr = "男";
     private ListView stuList;
-    private RadioButton maleButton;
+    private RadioButton maleButton, femaleButton;
     SQLiteDatabase db1;
     private StudentDao_data_access_object dao;
-
 
 
     @Override
@@ -39,6 +38,7 @@ public class MainActivity3 extends AppCompatActivity {
         genderGroup = findViewById(R.id.gender_gp);
         maleButton = findViewById(R.id.male);
         stuList = findViewById(R.id.stu_list);
+        femaleButton = findViewById(R.id.female);
 
         dao = new StudentDao_data_access_object(this);
 
@@ -62,6 +62,8 @@ public class MainActivity3 extends AppCompatActivity {
         String idStr = idEdt.getText().toString();
         String nameStr = nameEdt.getText().toString();
         String ageStr = ageEdt.getText().toString();
+        String genderStr = maleButton.getText().toString();
+        String genderStr2 = femaleButton.getText().toString();
 
         switch (view.getId()) {
 
@@ -69,7 +71,7 @@ public class MainActivity3 extends AppCompatActivity {
 
                 Student stu = new Student(nameStr, Integer.parseInt(ageStr), genderStr);
                 dao.addStudent(stu);
-                Toast.makeText(this,"添加成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.select_btn:
@@ -99,21 +101,21 @@ public class MainActivity3 extends AppCompatActivity {
                 );
                 stuList.setAdapter(simpleCursorAdapter);
 
-                Toast.makeText(this,"查询成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "查询成功", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.delete_btn:
+                String[] params = getParams(nameStr, ageStr, idStr);
+                dao.deleteStudent(params[0], params[1]);
 
-                    Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.update_btn:
+                Student student2 = new Student(Integer.parseInt(idStr), nameStr, Integer.parseInt(ageStr), genderStr);
+                dao.updateStudent(student2);
 
-                    Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -122,5 +124,24 @@ public class MainActivity3 extends AppCompatActivity {
         ageEdt.setText("");
         idEdt.setText("");
         maleButton.setChecked(true);
+    }
+
+    //返回key value的数组
+    public String[] getParams(String nameStr, String ageStr, String idStr) {
+
+        String[] params = new String[2];
+        if (!nameStr.equals("")) {
+            params[1] = nameStr;
+            params[0] = "name";
+        } else if (!ageStr.equals("")) {
+            params[1] = ageStr;
+            params[0] = "age";
+        } else if (!idStr.equals("")) {
+            params[1] = idStr;
+            params[0] = "_id";
+        }
+
+
+        return params;
     }
 }
