@@ -1,4 +1,4 @@
-com.example.asynctask
+com.example.expand
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -628,8 +628,11 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable group_indicator
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable indicator_collapse
+drawable indicator_expand
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -700,6 +703,7 @@ id disableHome
 id edit_query
 id end
 id expand_activities_button
+id expandableListView2
 id expanded_menu
 id fill
 id fill_horizontal
@@ -712,6 +716,8 @@ id home
 id homeAsUp
 id icon
 id icon_group
+id id_iv_indicator
+id id_tv_name
 id ifRoom
 id image
 id info
@@ -825,6 +831,8 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout item_child_chapter
+layout item_parent_chapter
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big

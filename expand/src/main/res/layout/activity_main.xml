@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ExpandableListView
-    android:id="@+id/expandableListView"
+    android:id="@+id/expandableListView2"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:groupIndicator="@null"
+    tools:context=".MainActivity"
+    android:childIndicator="@drawable/indicator_expand"
+    android:childDivider="#44ff0000"
+    android:childIndicatorStart="0dp"
+    android:childIndicatorEnd="24dp"
+
+    >
 
 
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--展开的状态-->
+    <item android:drawable="@drawable/indicator_expand"
+        android:state_selected="true"/>
+
+    <!--没有展开的状态-->
+    <item android:drawable="@drawable/indicator_collapse"/>
+
+</selector>
